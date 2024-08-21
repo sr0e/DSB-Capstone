@@ -30,17 +30,11 @@ def make_gradcam_heatmap(img_array, model, last_conv_layer_name, pred_index=None
 
     pooled_grads = tensorflow.reduce_mean(grads, axis=(0, 1, 2))
     conv_output = conv_output[0]
-    print(f"pooled_grads values: {pooled_grads}")
-    print(f"conv_output values: {conv_output}")
 
     heatmap = tensorflow.reduce_max(conv_output * pooled_grads, axis=-1)
-
-    print(f"heatmap values before normalization: {heatmap}")
     
     heatmap = tensorflow.maximum(heatmap, 0)
     heatmap = heatmap / tensorflow.reduce_max(heatmap)
-
-    print(f"heatmap values after normalization: {heatmap}")
 
     return heatmap.numpy()
 
