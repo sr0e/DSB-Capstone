@@ -28,18 +28,12 @@ def make_gradcam_heatmap(img_array, model, last_conv_layer_name, pred_index=None
 
     grads = tape.gradient(class_channel, conv_output)
 
-    print(f"Grads: {grads}")
-    print(f"Grads mean: {tensorflow.reduce_mean(grads)}")
-    print(f"Grads max: {tensorflow.reduce_max(grads)}")
-    print(f"Grads min: {tensorflow.reduce_min(grads)}")
-
-    if grads is None or tensorflow.reduce_all(tensorflow.math.is_nan(grads)):
-        raise ValueError("Gradients are None or contain NaNs.")
-
     pooled_grads = tensorflow.reduce_mean(grads, axis=(0, 1, 2))
     conv_output = conv_output[0]
+    print(f"pooled_grads values: {pooled_grads}")
+    print(f"conv_output values: {conv_output}")
 
-    heatmap = tensorflow.reduce_sum(conv_output * pooled_grads, axis=-1)
+    heatmap = tensorflow.reduce_max(conv_output * pooled_grads, axis=-1)
 
     print(f"heatmap values before normalization: {heatmap}")
     
@@ -68,7 +62,3 @@ def save_and_display_gradcam(img, heatmap, cam_path="cam.jpg", alpha=0.4):
     superimposed_img = np.clip(superimposed_img, 0, 255).astype(np.uint8)
     superimposed_img = Image.fromarray(superimposed_img)
     return superimposed_img
-    # buffer = io.BytesIO()
-    # superimposed_img.save(buffer, format='JPEG')
-    # buffer.seek(0)
-    # return buffer
