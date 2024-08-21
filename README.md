@@ -1,4 +1,4 @@
-# DSB-Capstone
+# Automated Classification of Brain Tumor MRI Images with CNN Modeling
 
 ## **Executive Summary**
 
@@ -122,6 +122,10 @@ The overall accuracy of the **CNN with Xception architecture** was 0.95.
 | Actual No Tumor | 0 | 5 | 95 | 2 |
 | Actual Pituitary | 0 | 4 | 0 | 132 |
 
+### **Grad-CAM Heatmap**
+
+The grad-CAM heatmap provided a more 'white-box' look to this black box model. It creates a heatmap of where the model is looking when making predictions. Once relayed over the image, it is clear what is most important when the model is creating predictions. Healthcare professionals and patients typically appreciate undrstanding the step-by-step process of how decisions are made, expecially with how new machine learning models are. The grad-CAM provides insight into that process. If this model is to be implemented into diagnostic workflow, a grad-CAM would be increadibly beneficial in gaining the trust of medical professionals and patients. 
+
 ### **Discussion/Conclusions/Next Steps**
 
 This project involved developing CNN models for classifying brain MRI images, which is crucial for several reasons. Firstly, these models enhance diagnostic accuracy and efficiency, enabling early detection of brain tumors and significantly improving patient prognosis. Early detection offers more treatment options and enhances overall outcomes by allowing patients to explore various treatment choices. Additionally, automation in detecting and classifying brain tumors means healthcare professionals can focus on more complex issues, as automated systems can process and analyze images faster and more accurately than human radiologists.
@@ -134,3 +138,23 @@ However, there are limitations to consider. The computational resources required
 
 In conclusion, the CNN model with the Xception architecture demonstrated superior accuracy and performance in classifying brain MRI images. This project underscores the potential of machine learning models to advance automated medical image analysis and improve diagnostic processes in clinical settings. The ultimate goal of healthcare automation is to enhance patient care and support medical professionals in decision-making, and continued research and development in this area will be invaluable for achieving these objectives.
 
+#### **Work Cited**
+
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9132094/#:~:text=Glioma%20APT%20images%20are%20larger,the%20infiltration%20of%20brain%20tumors.
+https://matplotlib.org/stable/gallery/lines_bars_and_markers/bar_colors.html#sphx-glr-gallery-lines-bars-and-markers-bar-colors-py
+https://www.mayoclinic.org/diseases-conditions/glioma/symptoms-causes/syc-20350251
+https://www.mayoclinic.org/diseases-conditions/brain-tumor/symptoms-causes/syc-20350084#:~:text=A%20brain%20tumor%20is%20a,the%20surface%20of%20the%20brain.
+
+https://www.aaroncohen-gadol.com/en/patients/brain-tumor/types/statistics#:~:text=Malignant%20Brain%20Tumors%20Statistics,-32.&text=33.,7%20per%20100%2C000%20individuals%20annually.&text=35.
+
+https://en.wikipedia.org/wiki/Wilma_Rudolph
+
+https://en.wikipedia.org/wiki/Mark_Ruffalo
+
+https://en.wikipedia.org/wiki/Janet_Johnson_(politician)
+
+https://braintumourresearch.org/en-us/pages/types-of-brain-tumours-glioma#:~:text=Grade%202%20gliomas%20(such%20as,of%20around%205%2D10%25.
+
+https://www.mayoclinic.org/diseases-conditions/meningioma/symptoms-causes/syc-20355643
+
+https://www.mayoclinic.org/diseases-conditions/pituitary-tumors/symptoms-causes/syc-20350548
